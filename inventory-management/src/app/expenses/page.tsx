@@ -57,12 +57,12 @@ const Expenses = () => {
       })
       .reduce((acc: AggregatedData, data: ExpenseByCategorySummary) => {
         const amount = parseInt(data.amount);
-        if (!acc[data.category]) {
-          acc[data.category] = { name: data.category, amount: 0 };
-          acc[data.category].color = `#${Math.floor(
+        if (!acc[data.category.toString()]) {
+          acc[data.category.toString()] = { name: data.category.toString(), amount: 0 };
+          acc[data.category.toString()].color = `#${Math.floor(
             Math.random() * 16777215
           ).toString(16)}`;
-          acc[data.category].amount += amount;
+          acc[data.category.toString()].amount += amount;
         }
         return acc;
       }, {});
